@@ -1,0 +1,17 @@
+[Unit]
+Description=rabbot server (gunicorn)
+After=network.target
+
+[Service]
+PIDFile=/run/rabbot/pid
+User=rabbot
+Group=rabbot
+RuntimeDirectory=rabbot
+WorkingDirectory=/srv/rabbot
+ExecStart=/srv/rabbot/venv/bin/gunicorn --pid /run/rabbot/pid --bind 127.0.0.1:9002 rabbot:app
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
