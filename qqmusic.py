@@ -11,7 +11,7 @@ import requests
 def search(query):
     try:
         r = requests.get('https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp',
-                         params=dict(w=query))
+                         params=dict(w=query), timeout=5)
         # Handle JSONP
         m = re.match(r'^callback\((?P<json>.*)\)$', r.text)
         if not m:
