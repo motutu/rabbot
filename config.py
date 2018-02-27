@@ -1,5 +1,6 @@
 # Config file structure:
 #
+# - bot.nickname
 # - tts.google_translate_proxy
 
 import configparser
