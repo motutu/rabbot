@@ -2,3 +2,4 @@ Flask
 attrdict
 gunicorn
 requests
+xpinyin
