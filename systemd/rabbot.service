@@ -4,11 +4,11 @@ After=network.target
 
 [Service]
 PIDFile=/run/rabbot/pid
-User=rabbot
-Group=rabbot
+User=www-data
+Group=www-data
 RuntimeDirectory=rabbot
-WorkingDirectory=/srv/rabbot
-ExecStart=/srv/rabbot/venv/bin/gunicorn --pid /run/rabbot/pid --bind 127.0.0.1:9002 --workers 2 rabbot:app
+WorkingDirectory=/srv/bot.momo0v0.club/rabbot
+ExecStart=/usr/local/bin/gunicorn --pid /run/rabbot/pid --bind 127.0.0.1:9002 --workers 2 rabbot:app
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s TERM $MAINPID
 PrivateTmp=true
